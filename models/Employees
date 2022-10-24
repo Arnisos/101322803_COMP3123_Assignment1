@@ -1,0 +1,36 @@
+// define schema
+const mongoose = require('mongoose')
+const employeeSchema = mongoose.Schema({
+    first_name: {
+        type: String,
+        require: true,
+        max: 50
+        
+    },
+    last_name: {
+        type: String,
+        require: true,
+        max: 50
+    
+    },
+    email: {
+        type: String,
+        require: true,
+        unique: true,
+        max: 50
+
+    },
+    gender: {
+        type: String,
+        max: 25
+    },
+    salary:{
+        type: Number,
+        require: true,
+        min: 10,
+        max: 100
+    }
+})
+
+// Creating model from schema
+module.exports = mongoose.model("employee", employeeSchema)
